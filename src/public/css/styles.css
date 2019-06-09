@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: yellow;
+    font-size: 40pt;
+    font-weight: bold;
+}

@@ -1,14 +1,30 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: #000000;
+    background-image: url(http://untroubled.org/backgrounds/space/stars.gif);
     color: #ffffff;
 }
-
-h1 {
+.img-responsive{
+    width: 600px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+#versus{
+    width:70px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+.choose-option{
+    margin-bottom: 200px;
+}
+.form-inline{
+    width:100%;
+}
+.form-control.col-sm-5{
+    color:#ffffff;
     text-align: center;
-    text-transform: uppercase;
-    color: yellow;
-    font-size: 40pt;
-    font-weight: bold;
+}
+.customized-select{
+    width:520px;
 }

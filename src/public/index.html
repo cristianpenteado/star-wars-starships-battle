@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js/request.js"></script>
 </head>
 
 <body>
@@ -32,19 +33,19 @@
         </div>
 
         <div class="form-inline">
-            <select class="form-control col-sm-5">
-                <option value="test">Death Star</option>
+            <select id="first-box" class="form-control col-sm-5">
+                <option value="-1">Selecione alguma opção</option>
             </select>
             <img src="assets/img/cruzada.png" id="versus" />
-            <select class="form-control col-sm-5">
-                <option value="test">Millennium Falcon</option>
+            <select id="second-box" class="form-control col-sm-5">
+                <option value="-1">Selecione alguma opção</option>
             </select>
         </div>
     </div>
     <script>
         const audio = new Audio("./assets/medias/sw.ogg");
         audio.play();
-        audio.volume = 0.05;
+        audio.volume = 1;
         audio.loop = true;
     </script>
 </body>

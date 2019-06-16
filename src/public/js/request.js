@@ -1,6 +1,7 @@
 let url = 'https://swapi.co/api/starships/';
+var starships
 
-function getStarWarsStarships(url = 'https://swapi.co/api/starships/', starships = []) {
+function getStarWarsStarships(url, starships) {
     return new Promise((resolve, reject) => fetch(url)
         .then(response => {
             if (response.status !== 200) {
@@ -18,13 +19,14 @@ function getStarWarsStarships(url = 'https://swapi.co/api/starships/', starships
         }).catch(reject));
 }
 
-getStarWarsStarships()
+getStarWarsStarships(url, starships = [])
     .then(starships => {
 
-        starships.map(p => {
+        starships.map((p, i) => {
             let box = document.getElementById('first-box');
             let item = document.createElement('option');
             item.innerHTML = p.name;
+            item.value = p.name;
             box.appendChild(item);
 
         });
@@ -34,12 +36,5 @@ getStarWarsStarships()
             var cln = box[i].cloneNode(true);
             document.getElementById('second-box').appendChild(cln);
         }
-        console.log(starships[0].max_atmosphering_speed);
-
-    }).then((starships) => {
-        let box1 = document.getElementById('first-box');
-        let box2 = document.getElementById('second-box');
-        //ONCHANGE
     })
     .catch(console.error);
-

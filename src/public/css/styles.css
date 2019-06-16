@@ -9,14 +9,15 @@
     display: block;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 100px;
 }
 #versus{
     width:70px;
     margin-right: 40px;
     margin-left: 40px;
 }
-.choose-option{
-    margin-bottom: 200px;
+#choose-option{
+    margin-top: 150px;
 }
 .form-inline{
     width:100%;
@@ -27,4 +28,60 @@
 }
 .customized-select{
     width:520px;
+    font-size: 16pt;
+    font-weight: bolder;
 }
+#select-field{
+    display: none;
+    margin-top: 50px;
+}
+#title-category{
+    margin-bottom: 40px;
+}
+.btn.btn-light{
+    margin-top: 40px;
+    background: #ffffff;
+}
+label{
+    margin-right: 15px;
+}
+@-webkit-keyframes prelude {
+    from{opacity: 0;}
+    20%{opacity: 1;}
+      80%{opacity: 1;}
+      to{opacity: 0;}
+  }
+  
+  @-moz-keyframes prelude {
+      from{opacity: 0;}
+      20%{opacity: 1;}
+      80%{opacity: 1;}
+      to{opacity: 0;}
+  }
+  @-o-keyframes prelude {
+      from{opacity: 0;}
+      20%{opacity: 1;}
+      80%{opacity: 1;}
+      to{opacity: 0;}
+  }
+  #prelude{
+      opacity: 0;
+      color: #1B7DEB;
+      text-align: center;
+      margin-top: 20%;
+      text-shadow: 0 0 1px #1B7DEB;
+      font-size: 20px;
+      margin-bottom: 500px;
+      -webkit-animation-name: prelude;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-duration: 4s;
+      -webkit-animation-iteration-count: 1;
+      -moz-animation-name: prelude;
+      -moz-animation-timing-function: linear;
+      -moz-animation-duration: 4s;
+      -moz-animation-iteration-count: 1;
+      -o-animation-name: prelude;
+      -o-animation-timing-function: linear;
+      -o-animation-duration: 4s;
+      -o-animation-iteration-count: 1;
+  }

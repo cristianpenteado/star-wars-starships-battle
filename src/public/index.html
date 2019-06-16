@@ -10,44 +10,62 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="js/request.js"></script>
+
 </head>
 
 <body>
+    <div id="prelude">A long time ago in a galaxy far, far away ....</div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <img src="assets/img/title.gif" class="img-responsive" />
             </div>
         </div>
-        <div class="choose-option">
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optradio">Starships
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optradio">Vehicles
-                </label>
-            </div>
-        </div>
-
-        <div class="form-inline">
+        <div id="choose-option" class="form-inline">
             <select id="first-box" class="form-control col-sm-5">
-                <option value="-1">Selecione alguma opção</option>
+                <option value="-1">Select your starship</option>
             </select>
             <img src="assets/img/cruzada.png" id="versus" />
             <select id="second-box" class="form-control col-sm-5">
-                <option value="-1">Selecione alguma opção</option>
+                <option value="-1">Select your starship</option>
             </select>
         </div>
+    </div>
+    <div id="select-field" class="text-center">
+        <h2 id="title-category" class="text-center">Select the battle category</h2>
+        <form id="battle">
+            <label class="radio-inline">
+                <input type="radio" name="optradio">Cargo capacity
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio">Hyperdrive rating
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio">MGLT
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio">Passengers
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio">Crew
+            </label>
+            <br />
+            <input class="btn btn-light" type="submit" value="Submit" />
+        </form>
     </div>
     <script>
         const audio = new Audio("./assets/medias/sw.ogg");
         audio.play();
         audio.volume = 1;
         audio.loop = true;
+
+        setTimeout(() => {
+            document.getElementById('prelude').style.display = 'none';
+        }, 4000);
+
+
     </script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

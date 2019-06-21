@@ -28,7 +28,6 @@ getStarWarsStarships(url, starships = [])
             item.innerHTML = p.name;
             item.value = p.name;
             box.appendChild(item);
-
         });
 
         let box = document.getElementById('first-box');

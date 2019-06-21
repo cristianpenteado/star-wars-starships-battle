@@ -6,7 +6,7 @@ box2.addEventListener('change', showRadioField);
 
 document.getElementById('battle').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const radioValue = document.querySelector('input[name=field]:checked').value;
+    const radio = document.querySelector('input[name=field]:checked');
     let value1;
     let value2;
     await fetch(`https://swapi.co/api/starships/?search=${box1.value}`)
@@ -14,7 +14,7 @@ document.getElementById('battle').addEventListener('submit', async (e) => {
             return response.json();
         })
         .then(starships => {
-            value1 = starships.results[0][radioValue];
+            value1 = starships.results[0][radio.value];
             value1 = value1 == 'unknown' ? 0 : value1;
 
             document.getElementById('starship-name').innerText = starships.results[0].name;
@@ -27,7 +27,7 @@ document.getElementById('battle').addEventListener('submit', async (e) => {
             //Pegar imagem a partir do código da url
             let number = starships.results[0].url;
             number = number.replace(/[^0-9]*/, '').replace('/', '');
-            document.getElementById('starship-image').setAttribute('src', `assets/img/starships/${number}.jpg`);
+            document.getElementById('starship-image').setAttribute('src', (`assets/img/starships/${number}.jpg` || "assets/img/big-placeholder.jpg"));
         });
 
 
@@ -36,7 +36,7 @@ document.getElementById('battle').addEventListener('submit', async (e) => {
             return response.json();
         })
         .then(starships => {
-            value2 = starships.results[0][radioValue];
+            value2 = starships.results[0][radio.value];
             value2 = value2 == 'unknown' ? 0 : value2;
             document.getElementById('starship-name2').innerText = starships.results[0].name;
             document.getElementById('cargo2').innerText = starships.results[0].cargo_capacity;
@@ -49,8 +49,19 @@ document.getElementById('battle').addEventListener('submit', async (e) => {
             let number = starships.results[0].url;
             number = number.replace(/[^0-9]*/, '').replace('/', '');
             document.getElementById('starship-image2').setAttribute('src', `assets/img/starships/${number}.jpg`);
+
+
         });
     document.getElementById('result').style.display = await 'block';
+    document.getElementById('battle-category').textContent = await radio.value;
+
+    if (value1 > value2) {
+        await document.getElementById('starship').setAttribute('style', 'border: 5px solid green;');
+        await document.getElementById('starship2').setAttribute('style', 'border: 5px solid red;');
+    } else {
+        await document.getElementById('starship').setAttribute('style', 'border: 5px solid red;');
+        await document.getElementById('starship2').setAttribute('style', 'border: 5px solid green;');
+    }
 
 });
 

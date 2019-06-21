@@ -26,8 +26,8 @@ document.getElementById('battle').addEventListener('submit', async (e) => {
 
             //Pegar imagem a partir do código da url
             let number = starships.results[0].url;
-
-            document.getElementById('starship-image').setAttribute('src', `assets/img/starships/${number}.jpg`)
+            number = number.replace(/[^0-9]*/, '').replace('/', '');
+            document.getElementById('starship-image').setAttribute('src', `assets/img/starships/${number}.jpg`);
         });
 
 
@@ -44,6 +44,11 @@ document.getElementById('battle').addEventListener('submit', async (e) => {
             document.getElementById('mglt2').innerText = starships.results[0].MGLT;
             document.getElementById('crew2').innerText = starships.results[0].crew;
             document.getElementById('passengers2').innerText = starships.results[0].passengers;
+
+            //Pegar imagem a partir do código da url
+            let number = starships.results[0].url;
+            number = number.replace(/[^0-9]*/, '').replace('/', '');
+            document.getElementById('starship-image2').setAttribute('src', `assets/img/starships/${number}.jpg`);
         });
     document.getElementById('result').style.display = await 'block';
 

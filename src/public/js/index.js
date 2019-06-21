@@ -55,7 +55,10 @@ document.getElementById('battle').addEventListener('submit', async (e) => {
     document.getElementById('result').style.display = await 'block';
     document.getElementById('battle-category').textContent = await radio.value;
 
-    if (value1 > value2) {
+    if (value1 = value2) {
+        await document.getElementById('starship').setAttribute('style', 'border: 5px solid yellow;');
+        await document.getElementById('starship2').setAttribute('style', 'border: 5px solid yellow;');
+    }else if (value1 > value2) {
         await document.getElementById('starship').setAttribute('style', 'border: 5px solid green;');
         await document.getElementById('starship2').setAttribute('style', 'border: 5px solid red;');
     } else {

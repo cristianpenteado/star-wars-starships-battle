@@ -61,21 +61,22 @@
 
         </div>
         <div class="card-all">
-            <img class="card-image" src="assets/img/starships/12.jpg" alt="Card image cap">
+            <img id="starship-image" class="card-image" src="assets/img/starships/12.jpg" alt="Card image cap">
             <div class="card-total">
                 <div class="card-t">
-                    <h4 class="card-title">Starship name</h5>
+                    <h4 id="starship-name" class="card-title">
+                        </h5>
 
                         <ul class="card-list">
-                            <li class="card-t">Cargo capacity <div class="card-number">99</div>
+                            <li class="card-t">Cargo capacity <div id="cargo" class="card-number"></div>
                             </li>
-                            <li class="card-t">Hyperdrive rating <div class="card-number">99</div>
+                            <li class="card-t">Hyperdrive rating <div id="hyperdrive" class="card-number"></div>
                             </li>
-                            <li class="card-t">MGLT <div class="card-number">99</div>
+                            <li class="card-t">MGLT <div id="mglt" class="card-number"></div>
                             </li>
-                            <li class="card-t">Passengers <div class="card-number">99</div>
+                            <li class="card-t">Passengers <div id="passengers" class="card-number"></div>
                             </li>
-                            <li class="card-t">Crew <div class="card-number">99</div>
+                            <li class="card-t">Crew <div id="crew" class="card-number"></div>
                             </li>
                         </ul>
                 </div>
@@ -85,37 +86,37 @@
             <img class="card-image" src="assets/img/starships/12.jpg" alt="Card image cap">
             <div class="card-total">
                 <div class="card-t">
-                    <h4 class="card-title">Starship name</h5>
+                    <h4 id="starship-name2" class="card-title">
+                        </h5>
 
                         <ul class="card-list">
-                            <li class="card-t">Cargo capacity <div class="card-number">99</div>
+                            <li class="card-t">Cargo capacity <div id="cargo2" class="card-number"></div>
                             </li>
-                            <li class="card-t">Hyperdrive rating <div class="card-number">99</div>
+                            <li class="card-t">Hyperdrive rating <div id="hyperdrive2" class="card-number"></div>
                             </li>
-                            <li class="card-t">MGLT <div class="card-number">99</div>
+                            <li class="card-t">MGLT <div id="mglt2" class="card-number"></div>
                             </li>
-                            <li class="card-t">Passengers <div class="card-number">99</div>
+                            <li class="card-t">Passengers <div id="passengers2" class="card-number"></div>
                             </li>
-                            <li class="card-t">Crew <div class="card-number">99</div>
+                            <li class="card-t">Crew <div id="crew2" class="card-number"></div>
                             </li>
                         </ul>
                 </div>
             </div>
         </div>
-    </div>
-    <script>
-        const audio = new Audio("./assets/medias/sw.ogg");
-        audio.play();
-        audio.volume = 0.02;
-        audio.loop = true;
+        <script>
+            const audio = new Audio("./assets/medias/sw.ogg");
+            audio.play();
+            audio.volume = 0.02;
+            audio.loop = true;
 
-        setTimeout(() => {
-            document.getElementById('prelude').style.display = 'none';
-        }, 4000);
+            setTimeout(() => {
+                document.getElementById('prelude').style.display = 'none';
+            }, 4000);
 
 
-    </script>
-    <script src="js/index.js"></script>
+        </script>
+        <script src="js/index.js"></script>
 </body>
 
 </html>

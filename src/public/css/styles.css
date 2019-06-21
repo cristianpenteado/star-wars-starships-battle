@@ -94,6 +94,7 @@ label{
     width: 300px;
     height: 200px;
     border-radius: 10px;
+    border: 2px solid #000000;
 }
 .card-list{
     list-style: none;

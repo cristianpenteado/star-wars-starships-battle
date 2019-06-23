@@ -1,21 +1,38 @@
-let box1 = document.getElementById('first-box');
-let box2 = document.getElementById('second-box');
+let starship1 = document.getElementById('first-box');
+let starship2 = document.getElementById('second-box');
 
-box1.addEventListener('change', showRadioField);
-box2.addEventListener('change', showRadioField);
+let winnerStyle = 'box-shadow: 0 0 20px 5px green;';
+let loserStyle = 'box-shadow: 0 0 20px 5px red;';
+let drawStyle = 'box-shadow: 0 0 20px 5px yellow;';
 
-document.getElementById('battle').addEventListener('submit', async (e) => {
+starship1.addEventListener('change', showRadioField);
+starship2.addEventListener('change', showRadioField);
+
+document.getElementById('battle').addEventListener('submit', formSubmit);
+
+function showRadioField() {
+    if (starship2.value != -1 && starship1.value != -1) {
+        document.getElementById('select-field').style.display = 'block';
+    } else {
+        document.getElementById('select-field').style.display = 'none';
+    }
+}
+
+async function formSubmit(e) {
+
     e.preventDefault();
-    const radio = document.querySelector('input[name=field]:checked');
-    let value1;
-    let value2;
-    await fetch(`https://swapi.co/api/starships/${box1.value}/`)
+
+    let battleCategory = document.querySelector('input[name=field]:checked');
+    let starshipValue1;
+    let starshipValue2;
+
+    await fetch(`https://swapi.co/api/starships/${starship1.value}/`)
         .then(function (response) {
             return response.json();
         })
         .then(starships => {
-            value1 = starships[radio.value];
-            value1 = value1 == 'unknown' ? 0 : parseFloat(value1);
+            starshipValue1 = starships[battleCategory.value];
+            starshipValue1 = starshipValue1 == 'unknown' ? 0 : parseFloat(starshipValue1);
 
             document.getElementById('starship-name').innerText = starships.name;
             document.getElementById('cargo').innerText = starships.cargo_capacity;
@@ -23,55 +40,57 @@ document.getElementById('battle').addEventListener('submit', async (e) => {
             document.getElementById('mglt').innerText = starships.MGLT;
             document.getElementById('crew').innerText = starships.crew;
             document.getElementById('passengers').innerText = starships.passengers;
-
-            //Pegar imagem a partir do código da url
-            let number = starships.url;
-            number = number.replace(/[^0-9]*/, '').replace('/', '');
-            document.getElementById('starship-image').setAttribute('src', (`assets/img/starships/${number}.jpg` || "assets/img/big-placeholder.jpg"));
+            document.getElementById('starship-image').
+                setAttribute('src', `assets/img/starships/${starship1.value}.jpg`);
         });
 
 
-    await fetch(`https://swapi.co/api/starships/${box2.value}/`)
+    await fetch(`https://swapi.co/api/starships/${starship2.value}/`)
         .then(function (response) {
             return response.json();
         })
         .then(starships => {
-            value2 = starships[radio.value];
-            value2 = value2 == 'unknown' ? 0 : parseFloat(value2);
+            starshipValue2 = starships[battleCategory.value];
+            starshipValue2 = starshipValue2 == 'unknown' ? 0 : parseFloat(starshipValue2);
+
             document.getElementById('starship-name2').innerText = starships.name;
             document.getElementById('cargo2').innerText = starships.cargo_capacity;
             document.getElementById('hyperdrive2').innerText = starships.hyperdrive_rating;
             document.getElementById('mglt2').innerText = starships.MGLT;
             document.getElementById('crew2').innerText = starships.crew;
             document.getElementById('passengers2').innerText = starships.passengers;
-
-            //Pegar imagem a partir do código da url
-            let number = starships.url;
-            number = number.replace(/[^0-9]*/, '').replace('/', '');
-            document.getElementById('starship-image2').setAttribute('src', `assets/img/starships/${number}.jpg`);
+            document.getElementById('starship-image2').
+                setAttribute('src', `assets/img/starships/${starship2.value}.jpg`);
 
 
         });
+
     document.getElementById('result').style.display = await 'block';
-    document.getElementById('battle-category').textContent = await radio.nextSibling.textContent.trim();
+    document.getElementById('battle-category').textContent =
+        await battleCategory.nextSibling.textContent.trim();
 
-    if (value1 == value2) {
-        await document.getElementById('starship').setAttribute('style', 'box-shadow: 0 0 20px 5px yellow;');
-        await document.getElementById('starship2').setAttribute('style', 'box-shadow: 0 0 20px 5px yellow; ');
-    } else if (value1 > value2) {
-        await document.getElementById('starship').setAttribute('style', 'box-shadow: 0 0 20px 5px green;');
-        await document.getElementById('starship2').setAttribute('style', 'box-shadow: 0 0 20px 5px red;');
+    let card1 = document.getElementById('starship');
+    let card2 = document.getElementById('starship2');
+
+    if (starshipValue1 == starshipValue2) {
+        await card1.setAttribute('style', drawStyle);
+        await card2.setAttribute('style', drawStyle);
+        document.getElementById('battle-win-draw').innerText = await 'Draw';
+
+    } else if (starshipValue1 > starshipValue2) {
+        await card1.setAttribute('style', winnerStyle);
+        await card2.setAttribute('style', loserStyle);
+
+        document.getElementById('battle-win-draw').innerHTML =
+            await `&#10023; ${starship1.options[starship1.
+                selectedIndex].text}  Win! &#10023;`;
     } else {
-        await document.getElementById('starship').setAttribute('style', 'box-shadow: 0 0 20px 5px red;');
-        await document.getElementById('starship2').setAttribute('style', 'box-shadow: 0 0 20px 5px green;');
+        await card1.setAttribute('style', loserStyle);
+        await card2.setAttribute('style', winnerStyle);
+
+        document.getElementById('battle-win-draw').innerHTML =
+            await `&#10023; ${starship2.options[starship2.
+                selectedIndex].text}  Win! &#10023;`;
     }
 
-});
-
-function showRadioField() {
-    if (box2.value != -1 && box1.value != -1) {
-        document.getElementById('select-field').style.display = 'block';
-    } else {
-        document.getElementById('select-field').style.display = 'none';
-    }
 }

@@ -22,6 +22,15 @@
 #choose-option{
     margin-top: 150px;
 }
+.close-content{
+    margin-bottom: 35px;
+    width: 100%;
+    height: 80px;
+}
+
+#battle-win-draw{
+    color: #ffffff;
+}
 .form-inline{
     
     width:100%;

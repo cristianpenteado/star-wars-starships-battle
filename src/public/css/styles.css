@@ -1,4 +1,10 @@
+@font-face{
+    font-family: 'star-wars';
+    src:url(fonts/Starjedi.ttf)
+}
+
 * {
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
     background-image: url(http://untroubled.org/backgrounds/space/stars.gif);
@@ -29,6 +35,7 @@
 }
 
 #battle-win-draw{
+    font-family: 'star-wars';
     color: #ffffff;
 }
 .form-inline{
@@ -50,6 +57,7 @@
     color: #ffffff;
 }
 #title-category{
+    font-family: 'star-wars';
     margin-bottom: 40px;
 }
 .btn.btn-light{
@@ -69,13 +77,14 @@ label{
     margin-left: -450px;
     margin-top: -265px;
     width: 900px;
-    height: 530px;
+    height: 600px;
     border: 1px solid #d0d0d0;
     background: rgb(0, 0, 0);
     opacity: 1;
 
 }
 #battle-category{
+    font-family: 'star-wars';
     color: #ffffff;
 }
 .card-all{
@@ -95,6 +104,7 @@ label{
     background: #ffffff;
 }
 .card-title{
+    font-family: 'star-wars';
     width: 300px;
     background: #ffffff;
     margin-bottom: 10px;

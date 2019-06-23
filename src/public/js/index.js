@@ -15,7 +15,7 @@ document.getElementById('battle').addEventListener('submit', async (e) => {
         })
         .then(starships => {
             value1 = starships[radio.value];
-            value1 = value1 == 'unknown' ? 0 : value1;
+            value1 = value1 == 'unknown' ? 0 : parseFloat(value1);
 
             document.getElementById('starship-name').innerText = starships.name;
             document.getElementById('cargo').innerText = starships.cargo_capacity;
@@ -37,7 +37,7 @@ document.getElementById('battle').addEventListener('submit', async (e) => {
         })
         .then(starships => {
             value2 = starships[radio.value];
-            value2 = value2 == 'unknown' ? 0 : value2;
+            value2 = value2 == 'unknown' ? 0 : parseFloat(value2);
             document.getElementById('starship-name2').innerText = starships.name;
             document.getElementById('cargo2').innerText = starships.cargo_capacity;
             document.getElementById('hyperdrive2').innerText = starships.hyperdrive_rating;

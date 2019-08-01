@@ -53,6 +53,7 @@
     display: none;
     margin-top: 50px;
     color: #ffffff;
+    text-transform: uppercase;
 }
 #title-category{
     font-family: 'star-wars';
@@ -85,9 +86,10 @@ label{
     font-family: 'star-wars';
     color: #ffffff;
 }
+
 .card-all{
     background: #ffffff;
-    width: 318px;
+    width: 310px;
     float: left;
     margin-left: 180px;
     padding: 5px;
@@ -102,7 +104,8 @@ label{
     background: #ffffff;
 }
 .card-title{
-    font-family: 'star-wars';
+    font-size: 12pt;
+    font-weight: bold;
     width: 300px;
     background: #ffffff;
     margin-bottom: 10px;

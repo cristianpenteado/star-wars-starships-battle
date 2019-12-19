@@ -22,7 +22,7 @@
             </div>
         </div>
         <div id="choose-option" class="form-inline">
-            <select id="first-box" class="form-control col-sm-5">
+            <select id="first-box" class="form-control col-sm-5 text-center">
                 <option value="-1">Select your starship</option>
             </select>
             <img src="assets/img/cruzada.png" id="versus" class="col-sm-2" />
@@ -30,6 +30,7 @@
             </select>
         </div>
     </div>
+    
     <div id="select-field" class="text-center">
         <h2 id="title-category" class="text-center">Select the battle category</h2>
         <form id="battle">
@@ -54,16 +55,14 @@
             </button>
         </form>
     </div>
-    <div id="result">
+    <div id="result" class="result">
         <div class="close-content">
-            <a href="#"
-                onclick="document.getElementById('result').style.display='none'; document.body.style.opacity = 1;">
+            <button>
                 <img id="close" src="assets/img/close.png" />
-            </a>
+            </button>
             <h2 id="battle-category" class="text-center"></h2>
             <h2 id="battle-win-draw" class="text-center"></h2>
         </div>
-
         <div id="starship" class="card-all">
             <img id="starship-image" class="card-image" src="assets/img/big-placeholder.jpg" alt="Card image cap">
             <div class="card-total">

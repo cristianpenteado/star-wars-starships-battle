@@ -36,8 +36,7 @@
     font-family: 'star-wars';
     color: #ffffff;
 }
-.form-inline{
-    
+.form-inline{ 
     width:100%;
 }
 .form-control.col-sm-5{
@@ -67,7 +66,7 @@ label{
     margin-right: 15px;
 }
 
-#result{
+.result{
     z-index: 10;
     display: none;
     position: absolute;
@@ -78,36 +77,42 @@ label{
     width: 1200px;
     height: 600px;
     border: 1px solid #d0d0d0;
-    background: rgb(0, 0, 0);
     opacity: 1;
-
 }
+
+#close{
+    width: 30px;
+    background: red;
+}
+
 #battle-category{
     font-family: 'star-wars';
     color: #ffffff;
 }
 
 .card-all{
-    background: #ffffff;
+    background: #f0f0f0;
     width: 310px;
     float: left;
-    margin-left: 180px;
+    margin-top: 60px;
+    margin-left: 190px;
     padding: 5px;
     border-radius: 10px;
+    position: relative;
 }
 .card-total{
     width: 300px;
-    background: #ffffff;
+    background: #f0f0f0;
 }
 .card-t{
     width: 300px;
-    background: #ffffff;
+    background: #f0f0f0;
 }
 .card-title{
     font-size: 12pt;
     font-weight: bold;
     width: 300px;
-    background: #ffffff;
+    background: #f0f0f0;
     margin-bottom: 10px;
 }
 .card-image{
@@ -120,17 +125,59 @@ label{
     list-style: none;
 }
 .card-number{
-    background: #ffffff;
+    background: #f0f0f0;
     float: right;
 }
-.close-content{
-    width: 100%;
-    height: 80px;
+
+.winnerRight{
+    box-shadow: 0 0 10px 2.5px green;
+    animation-name: winnerRight;
+    animation-duration: 6s;
 }
-#close{
-    width: 50px;
-    background: red;
-    float: right;
+.winnerLeft{
+    box-shadow: 0 0 10px 2.5px green;
+    animation-name: winnerLeft;
+    animation-duration: 6s;
+}
+.loser{
+    box-shadow: 0 0 10px 2.5px red;
+    animation-name: loser;
+    animation-duration: 6s;
+}
+.draw{
+    box-shadow: 0 0 20px 5px yellow;
+}
+
+@keyframes winnerRight {
+    from {
+        padding: 5px;
+    }
+    to {
+        box-shadow: 0 0 50px 10px green;
+        transform: translateX(-85%);
+    }
+
+}
+@keyframes winnerLeft {
+    from {
+        padding: 5px;
+    }
+    to {
+        box-shadow: 0 0 50px 10px green;
+        transform: translateX(85%);
+    }
+
+}
+@keyframes loser {
+    from {
+       opacity: .7;
+       box-shadow: 0 0 20px 5px red;
+    }
+    to {
+        opacity: 0;    
+        box-shadow: 0 0 50px 5px red;    
+    }
+
 }
 
 @-webkit-keyframes prelude {

@@ -1,9 +1,11 @@
 let starship1 = document.getElementById('first-box');
 let starship2 = document.getElementById('second-box');
+const winnerName = document.getElementById('battle-win-draw');
 
-let winnerStyle = 'box-shadow: 0 0 20px 5px green;';
-let loserStyle = 'box-shadow: 0 0 20px 5px red;';
-let drawStyle = 'box-shadow: 0 0 20px 5px yellow;';
+document.getElementById('close').onclick = () => {
+    document.getElementById('result').style.display = 'none'; 
+    document.body.style.opacity = 1;
+}
 
 starship1.addEventListener('change', showRadioField);
 starship2.addEventListener('change', showRadioField);
@@ -16,6 +18,12 @@ function showRadioField() {
     } else {
         document.getElementById('select-field').style.display = 'none';
     }
+}
+
+function clearClassCSS(c1, c2) {
+    c1.className = "";
+    c2.className = "";
+    winnerName.innerText = "";  
 }
 
 async function formSubmit(e) {
@@ -65,32 +73,37 @@ async function formSubmit(e) {
 
         });
 
-    document.getElementById('result').style.display = await 'block';
+    document.getElementById('result').style.display = 'block';
     document.getElementById('battle-category').textContent =
-        await battleCategory.nextSibling.textContent.trim();
+         battleCategory.nextSibling.textContent.trim();
 
     let card1 = document.getElementById('starship');
     let card2 = document.getElementById('starship2');
+    
 
     if (starshipValue1 == starshipValue2) {
-        await card1.setAttribute('style', drawStyle);
-        await card2.setAttribute('style', drawStyle);
-        document.getElementById('battle-win-draw').innerText = await 'Draw';
+        clearClassCSS(card1, card2);
+        card1.classList.add("draw", "card-all");
+        card2.classList.add("draw", "card-all");
+        document.getElementById('battle-win-draw').innerText = 'Draw';
 
     } else if (starshipValue1 > starshipValue2) {
-        await card1.setAttribute('style', winnerStyle);
-        await card2.setAttribute('style', loserStyle);
-
-        document.getElementById('battle-win-draw').innerHTML =
-            await `&#10023; ${starship1.options[starship1.
-                selectedIndex].text}  Win! &#10023;`;
+        clearClassCSS(card1, card2);
+        card1.classList.add("winnerLeft", "card-all");
+        card2.classList.add("loser", "card-all");
+        const text = document.createTextNode(
+            `${starship1.options[starship1.selectedIndex].text}  Win!`
+        );
+        winnerName.appendChild(text);
     } else {
-        await card1.setAttribute('style', loserStyle);
-        await card2.setAttribute('style', winnerStyle);
+        clearClassCSS(card1, card2);
+        card1.classList.add("loser", "card-all");
+        card2.classList.add("winnerRight", "card-all");
 
-        document.getElementById('battle-win-draw').innerHTML =
-            await `&#10023; ${starship2.options[starship2.
-                selectedIndex].text}  Win! &#10023;`;
+        const text = document.createTextNode(
+            `${starship2.options[starship2.selectedIndex].text}  Win!`
+        );
+        winnerName.appendChild(text);
     }
 
 }

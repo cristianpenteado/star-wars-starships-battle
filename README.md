@@ -1,5 +1,7 @@
 #  Star Wars Starships Battle
 
+[![Language grade: Javascript](https://img.shields.io/lgtm/grade/javascript/g/cristianpenteado/star-wars-starships-battle.svg?logo=lgtm&logoWidth=18)](https://https://lgtm.com/projects/g/cristianpenteado/star-wars-starships-battle/context:javascript)
+
 -  ### Autores: [Cristian Penteado](http://github.com/cristianpenteado), [Douglas Scaini](http://github.com/douglasscaini) & [Matheus Brandalise](https://github.com/MatheusBrandalise)
 
  ## Índice
